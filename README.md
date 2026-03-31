@@ -56,3 +56,7 @@ To ensure deterministic behavior across the platform, the following interaction 
 2. Clone this repository inside your server's root directory (e.g., `htdocs` for XAMPP):
    ```bash
    git clone [https://github.com/HJLeslye/XP-Retro-Games.git](https://github.com/HJLeslye/XP-Retro-Games.git)
+3. Start the Apache service from your server control panel.
+4. Open your web browser and navigate to the local host address:
+```bash
+http://localhost/XP-Retro-Games
