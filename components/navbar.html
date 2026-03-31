@@ -1,0 +1,538 @@
+<style>
+    .navbar {
+        background-color: #16062d;
+    }
+
+    .navbar .navbar-brand img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .search-container {
+        flex: 1;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .search {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 28px;
+        background-color: #26223a;
+        transition: background 0.25s;
+        width: 100%;
+    }
+
+    .search:focus-within {
+        background-color: #2f2a47;
+    }
+
+    .search-input {
+        font-size: 15px;
+        font-weight: 500;
+        font-family: "Albert Sans", sans-serif;
+        color: #c9c9c9;
+        outline: none;
+        border: none;
+        background: transparent;
+        flex: 1;
+        padding-left: 10px;
+    }
+
+    .button-bg {
+        background-color: #4715a3;
+        color: white;
+        border-radius: 20px;
+        padding: 6px 16px;
+        white-space: nowrap;
+    }
+
+    .modal-content {
+        background-color: #1e0033;
+        border-radius: 1rem;
+    }
+
+    .btnclose-bg {
+        background-color: #1877f2;
+        color: #fff;
+    }
+
+    .facebook-btn,
+    .google-btn {
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 16px;
+        font-weight: 500;
+    }
+
+    .google-btn {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .facebook-btn {
+        background-color: #0080FF;
+        color: #fff;
+    }
+
+    .form-input {
+        border-radius: 15px;
+        padding: 10px 16px;
+        vertical-align: middle;
+        background-color: #26223A;
+        border-color: #E0DAF6;
+        color: white;
+        font-weight: 700;
+    }
+
+    .modal-btn {
+        background-color: #5015BD;
+        color: white;
+        border-radius: 50px;
+        padding: 15px 16px;
+        font-weight: 500;
+        border: none;
+    }
+
+    #toggleIcon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    @media (max-width: 992px) {
+        .search-container {
+            max-width: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .search-container {
+            display: none;
+        }
+
+        .navbar .navbar-brand img {
+            width: 45px;
+            height: 45px;
+        }
+
+        .button-bg {
+            padding: 4px 12px;
+            font-size: 14px;
+        }
+
+        .bi-heart,
+        .bi-list {
+            font-size: 1.4rem;
+        }
+    }
+</style>
+
+<!-- NAVBAR INICIO-->
+<nav class="navbar navbar-expand-lg fixed-top mt-0">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- IZQUIERDA: LOGO + TOGGLE -->
+        <div class="d-flex align-items-center gap-3">
+            <a href="/pages/index.html" class="navbar-brand">
+                <img src="../public/Img/Logos/logo.png" alt="Logo">
+            </a>
+            <a id="menu-toggle">
+                <i class="bi bi-list text-white fs-2" data-bs-toggle="collapse" data-bs-target="#collapseOne"></i>
+            </a>
+        </div>
+
+        <!-- CENTER: BARRA DE BUSQUEDA -->
+        <div class="search-container d-none d-sm-flex mx-auto">
+            <form class="search">
+                <input class="search-input" type="search" placeholder="search">
+                <a href="#"><i class="bi bi-search text-white fs-5 pe-2"></i></a>
+            </form>
+        </div>
+
+        <!-- RIGHT: FAVORITOS + BOTON DE LOGIN -->
+        <div class="d-flex align-items-center gap-3">
+            <!-- FAVORITOS -->
+            <a href="#"><i class="bi bi-heart text-white fs-4" data-bs-toggle="modal"
+                    data-bs-target="#favoritos"></i></a>
+            <!-- BOTON INICIAR SESION -->
+            <button class="btn button-bg" data-bs-toggle="modal" data-bs-target="#loginStep1Modal">Iniciar
+                Sesión</button>
+        </div>
+    </div>
+</nav>
+
+<!-- MODAL FAVORITOS -->
+<div class="modal fade" id="favoritos">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-4 text-white">
+            <!-- ENCABEZADO + BOTON CERRAR -->
+            <div class="modal-header border-0 mt-2 mb-0 px-2 d-flex align-items-center justify-content-between">
+                <div style="width: 2rem;"></div>
+                <!-- TITULO -->
+                <h5 class="mt-3 text-center flex-grow-1">Favoritos</h5>
+                <!-- BOTON CERRAR -->
+                <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                    <i class="bi bi-x fs-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PERFIL -->
+
+
+<!-- INICIAR SESION - MODALES -->
+<!-- MODAL INICIO -->
+<div class="modal fade" id="loginStep1Modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-4 text-white">
+            <!-- ENCABEZADO + BOTON CERRAR -->
+            <div class="modal-header border-0 mt-2 mb-2 px-2 d-flex align-items-center justify-content-between">
+                <div style="width: 2rem;"></div>
+                <!-- TITULO -->
+                <h5 class="mt-3 text-center flex-grow-1">Iniciar Sesión / Registrarse</h5>
+                <!-- BOTON CERRAR -->
+                <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                    <i class="bi bi-x fs-2"></i>
+                </a>
+            </div>
+
+            <!-- LOGIN CON GOOGLE -->
+            <button class="google-btn w-100 mb-3">
+                <img src="../public/Img/Logos/gmailLogo.png" width="20px" class="me-4">Continuar con Google
+            </button>
+
+            <!-- LOGIN CON FACEBOOK -->
+            <button class="facebook-btn w-100 mb-4">
+                <img src="../public/Img/Logos/facebookLogo.webp" width="30px" class="me-3">Continuar con Facebook
+            </button>
+
+            <!-- SEPARADOR -->
+            <div class="text-center mb-3">
+                <h5 class="text-nowrap">—————— O ——————</h5>
+            </div>
+
+            <!-- EMAIL INPUT -->
+            <input id="emailInput" type="email" class="mb-2 text-start ps-4 form-input"
+                placeholder="Introduzca tu correo electrónico">
+
+            <!-- REGISTRARSE -->
+            <small class="mb-4 ms-3">
+                <a href="#" data-bs-target="#registerModal" data-bs-toggle="modal"
+                    class="text-white text-decoration-none">No tengo una cuenta</a>
+            </small>
+
+            <!-- BOTON CONTINUAR -->
+            <button class="btn modal-btn w-100 mb-4" data-bs-toggle="modal"
+                data-bs-target="#loginStep2Modal">Continuar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL LOGIN -->
+<div class="modal fade" id="loginStep2Modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-4 text-white">
+            <!-- ENCABEZADO CON BOTÓN DE REGRESAR Y CERRAR -->
+            <div class="modal-header border-0 mt-2 mb-2 px-2 d-flex align-items-center justify-content-between">
+
+                <!-- BOTON DE REGRESAR -->
+                <a href="#" class="text-white" aria-label="Regresar" data-bs-toggle="modal"
+                    data-bs-target="#loginStep1Modal">
+                    <i class="bi bi-arrow-left fs-4"></i>
+                </a>
+
+                <!-- TITULO -->
+                <h5 class="m-0 text-center flex-grow-1">Introduce tu contraseña</h5>
+
+                <!-- BOTON DE CERRAR -->
+                <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                    <i class="bi bi-x fs-2"></i>
+                </a>
+            </div>
+
+            <!-- EMAIL INPUT -->
+            <input id="emailInput" type="email" class="mb-3 text-start ps-4 form-input"
+                placeholder="Introduzca tu correo electrónico">
+
+            <!-- CONTRASEÑA -->
+            <input id="passwordInput" type="password" class="mb-2 text-start ps-4 form-input" placeholder="Contraseña">
+
+            <!-- CHECKBOX Y ENLACE -->
+            <div class="d-flex justify-content-between align-items-center mb-4 text-white-50 mx-2">
+                <!-- RECORDAR CONTRASEÑA -->
+                <div class="form-check m-0">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Recordar contraseña</label>
+                </div>
+                <!-- REGISTRARSE -->
+                <a href="#" class="text-decoration-none text-white-50" data-bs-target="#passwordRecovery"
+                    data-bs-toggle="modal">¿Has olvidado tu contraseña?</a>
+            </div>
+
+            <!-- CAPTCHA -->
+            <div class="mb-4 bg-white text-dark p-2 text-center">[ reCAPTCHA aquí ]</div>
+
+            <!-- INICIAR SESION -->
+            <button class="btn modal-btn w-100 mb-3" data-bs-toggle="modal" data-bs-target="#index">Iniciar
+                sesión</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CAMBIAR CONTRASEÑA -->
+<div class="modal fade" id="passwordChange">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-4 text-white">
+            <!-- ENCABEZADO + BOTON CERRAR -->
+            <div class="modal-header border-0 mt-2 mb-0 px-2 d-flex align-items-center justify-content-between">
+                <div style="width: 2rem;"></div>
+                <!-- TITULO -->
+                <h5 class="mt-3 text-center flex-grow-1">Cambiar contraseña</h5>
+                <!-- BOTON CERRAR -->
+                <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                    <i class="bi bi-x fs-2"></i>
+                </a>
+            </div>
+
+            <!-- NUEVA CONTRASEÑA -->
+            <div class="position-relative mb-0">
+                <input type="password" name="password" id="password_input_field" class="form-input w-100"
+                    placeholder="Nueva contraseña" required>
+                <i onclick="togglePassword()" id="toggleIcon" class="bi bi-eye-slash text-white-50"></i>
+            </div>
+            <small class="text-white-50 ms-3">Debe tener mínimo 6 caracteres, letras y números.</small>
+
+            <!-- CONFIRMAR CONTRASEÑA -->
+            <input type="password" class="form-input mb-4 mt-3" placeholder="Confirmar contraseña">
+
+            <!-- BOTON CONTINUAR -->
+            <button class="btn modal-btn w-100 mb-4" data-bs-toggle="modal"
+                data-bs-target="#loginStep1Modal">Continuar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL RECUPERACION DE CONTRASEÑA -->
+<div class="modal fade" id="passwordRecovery">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-4 text-white">
+            <!-- ENCABEZADO CON BOTÓN DE REGRESAR Y CERRAR -->
+            <div class="modal-header border-0 mt-2 mb-2 px-2 d-flex align-items-center justify-content-between">
+
+                <!-- BOTON DE REGRESAR -->
+                <a href="#" class="text-white" aria-label="Regresar" data-bs-toggle="modal"
+                    data-bs-target="#loginStep2Modal">
+                    <i class="bi bi-arrow-left fs-4"></i>
+                </a>
+
+                <!-- TITULO -->
+                <h5 class="m-0 text-center flex-grow-1">Recuperación de contraseña</h5>
+
+                <!-- BOTON DE CERRAR -->
+                <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                    <i class="bi bi-x fs-2"></i>
+                </a>
+            </div>
+
+            <!-- NOTIFICACION EMAIL -->
+            <div class="row align-content-center justify-content-center mb-3">
+                <div class="col-2 text-end">
+                    <i class="bi bi-exclamation-circle fs-1 text-white-50"></i>
+                </div>
+                <div class="col-10 text-start">
+                    <small class="text-white-50">Se envió a tu email un mensaje de texto con un código de
+                        confirmación para la recuperación de la contraseña
+                    </small>
+                </div>
+            </div>
+
+            <!-- EMAIL INPUT -->
+            <input id="emailInput" type="email" class="mb-3 text-start ps-4 form-input"
+                placeholder="Introduzca tu correo electrónico">
+
+            <!-- CODIGO DE VERIFICACION INPUT -->
+            <input id="codiogoInput" type="text" class="mb-4 text-start ps-4 form-input"
+                placeholder="Código de verificación">
+
+            <!-- BOTON CONTINUAR -->
+            <button class="btn modal-btn w-100 mb-4" data-bs-toggle="modal"
+                data-bs-target="#passwordChange">Continuar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL REGISTRO -->
+<div class="modal fade" id="registerModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content px-4 text-white">
+
+            <!-- ENCABEZADO CON BOTÓN DE REGRESAR Y CERRAR -->
+            <div class="modal-header border-0 mt-2 mb-2 px-2 d-flex align-items-center justify-content-between">
+
+                <!-- BOTON DE REGRESAR -->
+                <a href="#" class="text-white" aria-label="Regresar" data-bs-toggle="modal"
+                    data-bs-target="#loginStep2Modal">
+                    <i class="bi bi-arrow-left fs-4"></i>
+                </a>
+
+                <!-- TITULO -->
+                <h5 class="m-0 text-center flex-grow-1">Crear una cuenta</h5>
+
+                <!-- BOTON DE CERRAR -->
+                <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                    <i class="bi bi-x fs-2"></i>
+                </a>
+            </div>
+
+            <!-- FOTO DE PORTADA -->
+            <div class="d-flex justify-content-center mb-3">
+                <img id="mainImage" src="../public/Img/Perfil/Perfil/default.png" alt="imagen"
+                    style="width: 100px; height: 100px; object-fit: cover; cursor: pointer;" data-bs-toggle="modal"
+                    data-bs-target="#seleccionarImagenModal">
+            </div>
+
+            <form id="registerForm">
+                <!-- Usuario -->
+                <input type="text" id="register-user" name="username" class="mb-2 text-start ps-4 form-input w-100"
+                    placeholder="Usuario" required>
+
+                <!-- Email -->
+                <input type="email" id="register-email" name="email" class="mb-2 text-start ps-4 form-input w-100"
+                    placeholder="Correo electrónico" required>
+
+                <!-- Contraseña -->
+                <div class="position-relative mb-2">
+                    <input type="password" id="register-password" name="password" class="form-input w-100" placeholder="Contraseña"
+                        required>
+                    <!-- <i class="bi bi-eye-slash text-white-50 toggle-password" data-target="register-password"></i> -->
+                </div>
+
+                <!-- Confirmar contraseña -->
+                <input type="password" id="register-confirm-password" class="form-input mb-0 w-100"
+                    placeholder="Confirmar contraseña" required>
+
+                <!-- PEQUEÑA LEYENDA -->
+                <small class="text-white-50 ms-3 mb-4">Debe tener mínimo 6 caracteres, letras y números.</small>
+
+                <!-- CAPTCHA (simulado aquí) -->
+                <div class="mb-4 bg-white text-dark p-2 text-center">[ reCAPTCHA aquí ]</div>
+
+                <!-- Botón de enviar -->
+                <button type="submit" class="btn modal-btn w-100 mb-4">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL SELECCIONAR IMAGEN -->
+    <div class="modal fade" id="seleccionarImagenModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content px-4 text-white">
+                <!-- ENCABEZADO CON BOTÓN DE REGRESAR Y CERRAR -->
+                <div class="modal-header border-0 mt-2 mb-2 px-2 d-flex align-items-center justify-content-between">
+
+                    <!-- BOTON DE REGRESAR -->
+                    <a href="#" class="text-white" aria-label="Regresar" data-bs-toggle="modal"
+                        data-bs-target="#loginStep2Modal">
+                        <i class="bi bi-arrow-left fs-4"></i>
+                    </a>
+
+                    <!-- TITULO -->
+                    <h5 class="m-0 text-center flex-grow-1">Selecciona una imagen de perfil</h5>
+
+                    <!-- BOTON DE CERRAR -->
+                    <a href="#" class="text-white" data-bs-dismiss="modal" aria-label="Cerrar">
+                        <i class="bi bi-x fs-2"></i>
+                    </a>
+                </div>
+
+                <!-- IMAGENES A ELEGIR -->
+                <div class="modal-body d-flex flex-wrap justify-content-center gap-2">
+                    <img src="../public/Img/Perfil/Perfil/perfilAbuelita.png" onclick="selectImage(this)"
+                        class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;">
+                    <img src="../public/Img/Perfil/Perfil/perfilAgua.png" onclick="selectImage(this)"
+                        class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;">
+                    <img src="../public/Img/Perfil/Perfil/perfilArabe.png" onclick="selectImage(this)"
+                        class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;">
+                    <img src="../public/Img/Perfil/Perfil/perfilBaile.png" onclick="selectImage(this)"
+                        class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;">
+                    <img src="../public/Img/Perfil/Perfil/perfilCiego.png" onclick="selectImage(this)"
+                        class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;">
+                    <img src="../public/Img/Perfil/Perfil/perfilGusano.png" onclick="selectImage(this)"
+                        class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT SELECCIONAR IMAGEN-->
+    <script>
+        function selectImage(imgElement) {
+            document.getElementById('mainImage').src = imgElement.src;
+
+            // Cerrar modal de selección de imagen
+            const seleccionarModal = bootstrap.Modal.getInstance(document.getElementById('seleccionarImagenModal'));
+            if (seleccionarModal) seleccionarModal.hide();
+
+            // Mostrar nuevamente el modal de registro
+            const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            registerModal.show();
+        }
+    </script>
+
+    <!-- VALIDACION Y ENVIO AJAX -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("registerForm");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const username = document.getElementById("register-user").value.trim();
+                const email = document.getElementById("register-email").value.trim();
+                const password = document.getElementById("register-password").value;
+                const confirmPassword = document.getElementById("register-confirm-password").value;
+
+                if (!username || !email || !password || !confirmPassword) {
+                    alert("Por favor, completa todos los campos.");
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    alert("Las contraseñas no coinciden.");
+                    return;
+                }
+
+                if (password.length < 6 || !/\d/.test(password) || !/[a-zA-Z]/.test(password)) {
+                    alert("La contraseña debe tener mínimo 6 caracteres, incluyendo letras y números.");
+                    return;
+                }
+
+                const formData = new FormData(form);
+
+                fetch("src/php/registrar_usuario.php", {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(res => res.text())
+                    .then(response => {
+                        alert(response);
+                        if (response.includes("exitosamente")) {
+                            form.reset();
+                            const modal = bootstrap.Modal.getInstance(document.getElementById("registerModal"));
+                            modal.hide();
+                        }
+                    })
+                    .catch(error => {
+                        alert("Error en el servidor: " + error);
+                    });
+            });
+        });
+    </script>

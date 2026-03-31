@@ -1,0 +1,52 @@
+.albert-sans {
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Puedes usar 400, 500, 700 según lo que importaste */
+  font-style: normal;
+}
+
+body {
+background-color: #211138;
+}
+
+.emphasis-bg {
+  background-color: #311c54;
+}
+
+.table-container {
+  background-color: #291941;
+}
+
+.table-bg {
+  background-color: #362650;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "albert-sans", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.gallery img {
+  flex: 1;
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.button-bg {
+  background-color: #4715a3;
+  color: white;
+  border-radius: 20px;
+  width: auto;
+}
+
+button:hover {
+  color: #cdadff !important;
+}
