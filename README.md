@@ -57,16 +57,14 @@ To ensure deterministic behavior across the platform, the following interaction 
    ```bash
    git clone [https://github.com/HJLeslye/XP-Retro-Games.git](https://github.com/HJLeslye/XP-Retro-Games.git)
 3. Start the Apache service from your server control panel.
+Open your web browser and navigate to the local host address:
 
----
+http://localhost/XP-Retro-Games
 
 ## Contact Details
 
 > **Leslye Hernández Jiménez**
-> *Engineering in Information and Communication Technologies*
+> *IT & Communications Engineering*
 >
-> **LinkedIn**: [View Profile](https://www.linkedin.com/in/leslye-hern%C3%A1ndez-jim%C3%A9nez-5559403a6)
+> **LinkedIn**: [View Profile](https://www.linkedin.com/in/leslye-hernandez-jimenez)
 > **Email**: [hdezj.leslye@gmail.com](mailto:hdezj.leslye@gmail.com)
-4. Open your web browser and navigate to the local host address:
-```bash
-http://localhost/XP-Retro-Games
